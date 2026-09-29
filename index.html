@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capstone Pitch Deck | Nedbank SmartFin AI Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card-bg: #1e293b;
+      --accent: #10b981;
+      --accent-glow: rgba(16, 185, 129, 0.25);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+      user-select: none;
+    }
+    header {
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+    .badge {
+      background: var(--accent);
+      color: #042f2e;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .slide-counter {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      position: relative;
+    }
+    .slide {
+      display: none;
+      width: 100%;
+      max-width: 1000px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 56px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px var(--accent-glow);
+      animation: fadeIn 0.3s ease-out;
+    }
+    .slide.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .slide-tag {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #ffffff 40%, #10b981 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      color: #ffffff;
+    }
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .card h3 {
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    .card p, ul {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    ul { list-style-position: inside; }
+    li { margin-bottom: 8px; }
+    footer {
+      padding: 20px 32px;
+      border-top: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-btn {
+      background: #334155;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover {
+      background: var(--accent);
+      color: #042f2e;
+    }
+    .hint {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+    @media print {
+      body { overflow: visible; height: auto; }
+      .slide { display: block !important; page-break-after: always; box-shadow: none; margin-bottom: 40px; }
+      header, footer { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="badge">Nedbank Hub</span>
+      <span>SmartFin AI Platform — Capstone Pitch Deck</span>
+    </div>
+    <div class="slide-counter" id="counter">Slide 1 of 8</div>
+  </header>
+
+  <main>
+    <!-- Slide 1: Title -->
+    <div class="slide active" data-slide="1">
+      <div class="slide-tag">Project 54 | Capstone Pitch Deck</div>
+      <h1>Nedbank SmartFin AI Platform</h1>
+      <p class="subtitle">Enterprise-Grade Financial Intelligence & Grounded Generative Banking Copilot</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Lead Engineer</h3>
+          <p>Menelisi | Full-Stack Software Engineering Specialization</p>
+        </div>
+        <div class="card">
+          <h3>Host Institution</h3>
+          <p>Emganwini Nedbank Hub | Master Project Portfolio</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Problem -->
+    <div class="slide" data-slide="2">
+      <div class="slide-tag">The Challenge</div>
+      <h2>Complex Products, Wait Times & AI Risks</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Information Asymmetry</h3>
+          <p>Over 68% of retail clients struggle to comprehend tiered deposit rates, notice intervals, and government subsidies (e.g. FLISP).</p>
+        </div>
+        <div class="card">
+          <h3>Support Bottlenecks</h3>
+          <p>Branch desks and call queues are overwhelmed answering repetitive tier-1 product rules rather than relationship building.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 24px;">
+        <h3>Generic AI Hallucinations & Liability</h3>
+        <p>Public LLMs hallucinate non-existent banking terms, fail to comply with the National Credit Act (NCA), and breach South Africa's POPIA privacy standards.</p>
+      </div>
+    </div>
+
+    <!-- Slide 3: Solution -->
+    <div class="slide" data-slide="3">
+      <div class="slide-tag">The Solution</div>
+      <h2>Nedbank SmartFin Full-Stack Portal</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>NedPulse Advisory Copilot</h3>
+          <p>Multi-turn conversational banking copilot guiding customers through accounts, savings tiers, and loan products.</p>
+        </div>
+        <div class="card">
+          <h3>Vector-Grounded RAG Engine</h3>
+          <p>Indexes 2,500+ words of official Nedbank product documentation, producing verified answers with cited source chunk snippets.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>3-Sentence Contract Summarizer</h3>
+          <p>Distills lengthy financial disclosure terms into 3 executive sentences with transparent token cost tracking.</p>
+        </div>
+        <div class="card">
+          <h3>Audited Advisory Feed</h3>
+          <p>Full-featured post and announcement publishing platform with role-based author controls.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: AI Feature -->
+    <div class="slide" data-slide="4">
+      <div class="slide-tag">AI Engineering</div>
+      <h2>Grounded RAG Pipeline & Zero-Hallucination Guardrails</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Semantic Chunking Architecture</h3>
+          <p>Documents partitioned into 500-character windows with 50-character sliding overlaps to protect semantic boundaries.</p>
+        </div>
+        <div class="card">
+          <h3>Cosine Vector Search</h3>
+          <p>Dense embedding vector comparisons execute in sub-150ms latency with strict relevance thresholds.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 24px;">
+        <h3>POPIA & Compliance Verification</h3>
+        <p>Strict prompt boundaries enforce that any query outside the verified Nedbank knowledge base is rejected with an explicit disclosure.</p>
+      </div>
+    </div>
+
+    <!-- Slide 5: Architecture -->
+    <div class="slide" data-slide="5">
+      <div class="slide-tag">System Architecture</div>
+      <h2>Modern Cloud-Native Multi-Tier Stack</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Frontend Layer (Vercel)</h3>
+          <ul>
+            <li>React 18 + Vite + Tailwind CSS</li>
+            <li>Context API Auth & State Management</li>
+            <li>Axios interceptors & Protected Routes</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Backend & API (Render)</h3>
+          <ul>
+            <li>Node.js + Express.js REST API</li>
+            <li>Prisma ORM with PostgreSQL 16 (Neon)</li>
+            <li>JWT Bearer Security & Sliding Rate Limits</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6: Live Demo -->
+    <div class="slide" data-slide="6">
+      <div class="slide-tag">Live Product Demo</div>
+      <h2>End-to-End User Verification Journey</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>1. Authentication & Onboarding</h3>
+          <p>Instant registration, salted bcrypt password hashing, and tokenized session restoration.</p>
+        </div>
+        <div class="card">
+          <h3>2. Interactive Financial Hub</h3>
+          <p>Filtered advisory feeds, full CRUD article authoring, and pre-filled update modals.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>3. NedPulse Copilot Consultations</h3>
+          <p>Speech bubbles, thinking animations, and citation-backed RAG answers.</p>
+        </div>
+        <div class="card">
+          <h3>4. Preserved History</h3>
+          <p>Stored session transcripts in PostgreSQL enabling multi-session consultation resume.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 7: Business Model -->
+    <div class="slide" data-slide="7">
+      <div class="slide-tag">Business Model</div>
+      <h2>Value Generation & Operational Efficiency</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Operational Cost Reduction</h3>
+          <p>Deflects up to 40% of tier-1 informational inquiries away from human contact centers, reducing operational overhead.</p>
+        </div>
+        <div class="card">
+          <h3>Deposit Conversion Uplift</h3>
+          <p>Clarity on notice deposit yields and FLISP subsidies directly accelerates customer deposit velocity.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 24px;">
+        <h3>Institutional Trust & Governance</h3>
+        <p>Guaranteed adherence to the National Credit Act and POPIA standards protects against regulatory penalties.</p>
+      </div>
+    </div>
+
+    <!-- Slide 8: Roadmap -->
+    <div class="slide" data-slide="8">
+      <div class="slide-tag">Strategic Roadmap</div>
+      <h2>Scaling NedPulse Across Southern Africa</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Phase 1 (Q3 2026)</h3>
+          <p>Vernacular language models supporting isiZulu, isiXhosa, Afrikaans, and Sesotho.</p>
+        </div>
+        <div class="card">
+          <h3>Phase 2 (Q4 2026)</h3>
+          <p>OpenBanking API integration for real-time account telemetry and spending analysis.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Phase 3 (Q1 2027)</h3>
+          <p>WhatsApp Business API integration for zero-data consumer copilot access.</p>
+        </div>
+        <div class="card">
+          <h3>Phase 4 (Q2 2027)</h3>
+          <p>Automated wealth portfolio rebalancing and algorithmic deposit allocation.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+    <div class="hint">Use ← and → arrow keys to navigate | Press Ctrl+P to Print/Export to PDF</div>
+    <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+  </footer>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 8;
+
+    function showSlide(n) {
+      document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+      const active = document.querySelector(`.slide[data-slide="${n}"]`);
+      if (active) active.classList.add('active');
+      document.getElementById('counter').innerText = `Slide ${n} of ${totalSlides}`;
+      document.getElementById('prevBtn').disabled = n === 1;
+      document.getElementById('nextBtn').disabled = n === totalSlides;
+    }
+
+    function changeSlide(step) {
+      currentSlide = Math.min(Math.max(currentSlide + step, 1), totalSlides);
+      showSlide(currentSlide);
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
